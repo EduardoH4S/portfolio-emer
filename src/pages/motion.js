@@ -1,41 +1,40 @@
-// src/pages/motion.js
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import Header from '../components/Header';
-import VideoCarousel from '../components/VideoCarousel';  // Novo componente
+import VideoCarousel from '../components/VideoCarousel';
 
 // Dados dos vídeos
 const videos = [
   {
     id: "17-RiK_yGhK0X10QgmRT6pWskjIvndhLk",
-    title: "Fashion Campaign",
-    year: "2023"
+    title: "S C H U T Z",
+    year: "xxxx"
   },
   {
     id: "1fsaOHuTbhQWIBRpkoQWw3tyyLwdRMxWx",
-    title: "Short Film",
-    year: "2023"
+    title: "G R U P O     H E R V A L",
+    year: "XXXXX"
   },
   {
     id: "1wGH2WWqRxJzg0daAYACGbtVPXOxioDam",
-    title: "Music Visualizer",
-    year: "2022"
+    title: "P E G A D A",
+    year: "xxxx"
   },
   {
     id: "1xEg6A_GknfbJ2YJUPkCZeKfsqoKFC1rX",
-    title: "Brand Campaign",
-    year: "2022"
+    title: "P E G A D A ²",
+    year: "xxxx"
   },
   {
     id: "15FlPZbvWdWZ5XG5XyMJfQV3k_-4BFoBW",
-    title: "Documentary",
-    year: "2021"
+    title: "P E G A D A    N I T R O   P",
+    year: "xxxx"
   },
   {
     id: "1b6z1IAxLpf6wGFhDQICWkxB_HfkayRP4",
-    title: "Experimental",
-    year: "2021"
+    title: "W O R K",
+    year: "xxxxx"
   }
 ];
 
@@ -73,8 +72,8 @@ export default function MotionPage() {
   return (
     <>
       <Head>
-        <title>Émerson Stoffel | PORTFÓLIO</title>
-        <meta name="description" content="Meu Portfólio" />
+        <title>Émerson Stoffel | Portfólio</title>
+        <meta name="description" content="WORK PROJECTS PORTFOLIO" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
@@ -104,7 +103,7 @@ export default function MotionPage() {
             initial="initial"
             animate={loading ? "initial" : "animate"}
           >
-            <span className="italic">É</span>merson <span className="italic">S</span>toffel
+            <span className="italic">PORTFOLIO</span>
           </motion.h1>
           <VideoCarousel videos={videos} />
         </main>
