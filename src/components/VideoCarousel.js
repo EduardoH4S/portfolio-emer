@@ -6,10 +6,12 @@ import VideoItem from './VideoItem';
 export default function VideoCarousel({ videos }) {
   const carouselRef = useRef(null);
   const controls = useAnimationControls();
+  
   // Hook para efeito inicial
   useEffect(() => {
     controls.start({ opacity: 1, transition: { delay: 1 } });
   }, [controls]);
+  
   return (
     <>
       <div className="video-carousel" ref={carouselRef}>
@@ -35,53 +37,36 @@ export default function VideoCarousel({ videos }) {
 
 // Componente para cada item do carrossel com client-side animation
 function ScrollItem({ video, index }) {
-  const [scrollProps, setScrollProps] = useState({
-    opacity: 0,
-    y: 50,
-    scale: 0.95
-  });
-  // Hook para animar com base na visibilidade
+  // Hook para animar com base na visibilidade - aumentado o threshold para melhor visibilidade
   const [ref, inView] = useInView({
-    threshold: 0.6, // Elemento está 60% visível
+    threshold: 0.6, // Elemento está 60% visível para melhor experiência
     triggerOnce: false
   });
-  // Animar quando estiver em visualização
-  useEffect(() => {
-    if (inView) {
-      setScrollProps({
-        opacity: 1,
-        y: 0,
-        scale: 1
-      });
-    } else {
-      setScrollProps({
-        opacity: 0,
-        y: 50,
-        scale: 0.95
-      });
-    }
-  }, [inView]);
+  
   // Usar um segundo hook para controlar a reprodução do vídeo
   const [playRef, isPlaying] = useInView({
-    threshold: 0.7, // Precisa estar mais visível para reproduzir
+    threshold: 0.7, // Aumentado para melhor controle de reprodução
     triggerOnce: false
   });
+  
   // Combinando as referências
   const setRefs = (el) => {
     ref(el);
     playRef(el);
   };
+  
   // Cálculo para atraso na entrada com base no índice
   const entryDelay = index * 0.1;
+  
   return (
     <motion.div
       ref={setRefs}
-      className="video-item"
+      className={`video-item ${inView ? 'in-view' : 'out-view'}`}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      animate={{
-        opacity: scrollProps.opacity,
-        y: scrollProps.y,
-        scale: scrollProps.scale,
+      animate={{ 
+        opacity: inView ? 1 : 0.4,
+        y: inView ? 0 : 50,
+        scale: inView ? 1 : 0.95
       }}
       transition={{
         duration: 0.8,

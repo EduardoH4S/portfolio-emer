@@ -4,37 +4,31 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import VideoCarousel from '../components/VideoCarousel';
 
-// Dados dos vídeos
+// Dados dos vídeos (atualizados para YouTube)
 const videos = [
   {
-    id: "17-RiK_yGhK0X10QgmRT6pWskjIvndhLk",
+    id: "1",
     title: "S C H U T Z",
-    year: "xxxx"
+    year: "xxxx",
+    url: "https://youtu.be/MEHfvilFlz0"
   },
   {
-    id: "1fsaOHuTbhQWIBRpkoQWw3tyyLwdRMxWx",
-    title: "G R U P O     H E R V A L",
-    year: "XXXXX"
+    id: "2",
+    title: "G R U P O H E R V A L",
+    year: "XXXXX",
+    url: "https://youtu.be/HDw8KjLoViM"
   },
   {
-    id: "1wGH2WWqRxJzg0daAYACGbtVPXOxioDam",
+    id: "3",
     title: "P E G A D A",
-    year: "xxxx"
+    year: "xxxx",
+    url: "https://youtu.be/xrqRTY-EveU"
   },
   {
-    id: "1xEg6A_GknfbJ2YJUPkCZeKfsqoKFC1rX",
+    id: "4",
     title: "P E G A D A ²",
-    year: "xxxx"
-  },
-  {
-    id: "15FlPZbvWdWZ5XG5XyMJfQV3k_-4BFoBW",
-    title: "P E G A D A    N I T R O   P",
-    year: "xxxx"
-  },
-  {
-    id: "1b6z1IAxLpf6wGFhDQICWkxB_HfkayRP4",
-    title: "W O R K",
-    year: "xxxxx"
+    year: "xxxx",
+    url: "https://youtu.be/UsxkjEqrCW4"
   }
 ];
 
@@ -58,14 +52,14 @@ export default function MotionPage() {
   
   const titleVariants = {
     initial: { y: 40, opacity: 0 },
-    animate: { 
-      y: 0, 
-      opacity: 1, 
-      transition: { 
-        delay: 0.3, 
-        duration: 0.9, 
-        ease: [0.19, 1, 0.22, 1] 
-      } 
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+        duration: 0.9,
+        ease: [0.19, 1, 0.22, 1]
+      }
     }
   };
   
